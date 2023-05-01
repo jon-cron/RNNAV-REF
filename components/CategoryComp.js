@@ -7,7 +7,8 @@ import {
   Pressable,
   Platform,
 } from "react-native";
-
+// import { useNavigation } from "@react-navigation/native";
+// NOTE instead of prop drilling you can give any component access to using navigation by the import above and setting const navigate = useNavigation()
 const CategoryComp = ({ title, color, onPress }) => {
   return (
     <View style={styles.gridItem}>
