@@ -17,8 +17,23 @@ export default function App() {
       <StatusBar style="dark" />
       <NavigationContainer>
         {/* NOTE initially the first screen would be the first Stack.Screen but that can be altered using the initialRouteName */}
-        <Stack.Navigator initialRouteName="Categories">
-          <Stack.Screen name="Categories" component={CategoriesScreen} />
+        <Stack.Navigator
+          initialRouteName="Categories"
+          // NOTE if you want styling to cover all screens then place the styling in the stack.navigator like this.
+          screenOptions={{
+            headerStyle: { backgroundColor: "#351401" },
+            headerTintColor: "#ffffff",
+            contentStyle: { backgroundColor: "#3f2f25" },
+          }}
+        >
+          <Stack.Screen
+            name="Categories"
+            component={CategoriesScreen}
+            // NOTE if you want to customize screens then place the styling within that screen
+            options={{
+              title: "All Categories",
+            }}
+          />
           <Stack.Screen name="MealsOverview" component={MealsOverViewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
