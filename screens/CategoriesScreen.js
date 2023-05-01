@@ -14,7 +14,10 @@ import CategoryComp from "../components/CategoryComp.js";
 const CategoriesScreen = ({ navigation }) => {
   const renderCategoryItem = (itemData) => {
     const handleNavigate = () => {
-      navigation.navigate("MealsOverview");
+      // NOTE navigation.navigate(the first argument is the screen you want to go to, the second argument are the params that you would like to pass down )
+      navigation.navigate("MealsOverview", {
+        categoryId: itemData.item.id,
+      });
     };
     return (
       <CategoryComp
