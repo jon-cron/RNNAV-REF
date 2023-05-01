@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, StyleSheet, Button, Pressable } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  Pressable,
+  Platform,
+} from "react-native";
 
 const CategoryComp = ({ title, color }) => {
   return (
@@ -26,8 +33,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
-    // NOTE the ripple on android was going passed the borderRadius. This overflow: 'hidden' cleans that up
-    overflow: "hidden",
+    // NOTE the ripple on android was going passed the borderRadius. This overflow: 'hidden' cleans that up.
+    // NOTE Platform.OS conditionally renders based on what platform the app is on. The overflow: hidden was initially hiding the shadow effect.
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   button: {
     flex: 1,
