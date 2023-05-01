@@ -11,7 +11,13 @@ import {
 const CategoryComp = ({ title, color }) => {
   return (
     <View style={styles.gridItem}>
-      <Pressable android_ripple={{ color: "#ccc" }} style={styles.button}>
+      <Pressable
+        android_ripple={{ color: "#ccc" }}
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed,
+        ]}
+      >
         <View style={styles.innerContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
@@ -39,6 +45,9 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
+  },
+  buttonPressed: {
+    opacity: 0.5,
   },
   innerContainer: {
     flex: 1,
