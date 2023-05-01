@@ -42,6 +42,8 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 200,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
   },
   title: {
     fontWeight: "bold",
