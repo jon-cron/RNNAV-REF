@@ -3,9 +3,9 @@ import { Text, View, StyleSheet, Button, Pressable } from "react-native";
 
 const CategoryComp = ({ title, color }) => {
   return (
-    <View>
-      <Pressable>
-        <View>
+    <View style={styles.gridItem}>
+      <Pressable style={styles.button}>
+        <View style={styles.innerContainer}>
           <Text>{title}</Text>
         </View>
       </Pressable>
@@ -13,6 +13,29 @@ const CategoryComp = ({ title, color }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  gridItem: {
+    flex: 1,
+    margin: 16,
+    height: 150,
+    borderRadius: 8,
+    elevation: 4,
+    // NOTE for ios add a background color to enable a shadow effect
+    backgroundColor: "white",
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+  },
+  button: {
+    flex: 1,
+  },
+  innerContainer: {
+    flex: 1,
+    padding: 16,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 export default CategoryComp;
