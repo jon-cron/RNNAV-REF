@@ -6,6 +6,7 @@ import { StyleSheet } from "react-native";
 import CategoriesScreen from "./screens/CategoriesScreen.js";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MealsOverViewScreen from "./screens/MealsOverViewScreen.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,8 +16,10 @@ export default function App() {
       {/* NOTE changing the statusbar to light changes the icons like wifi and battery to white instead of dark */}
       <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator>
+        {/* NOTE initially the first screen would be the first Stack.Screen but that can be altered using the initialRouteName */}
+        <Stack.Navigator initialRouteName="Categories">
           <Stack.Screen name="Categories" component={CategoriesScreen} />
+          <Stack.Screen name="MealsOverview" component={MealsOverViewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

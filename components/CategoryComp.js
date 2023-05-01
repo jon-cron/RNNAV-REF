@@ -8,10 +8,11 @@ import {
   Platform,
 } from "react-native";
 
-const CategoryComp = ({ title, color }) => {
+const CategoryComp = ({ title, color, onPress }) => {
   return (
     <View style={styles.gridItem}>
       <Pressable
+        onPress={onPress}
         android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => [
           styles.button,

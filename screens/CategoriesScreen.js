@@ -10,13 +10,20 @@ import {
 import { CATEGORIES } from "../data/dummyData.js";
 import CategoryComp from "../components/CategoryComp.js";
 
-const renderCategoryItem = (itemData) => {
-  return (
-    <CategoryComp title={itemData.item.title} color={itemData.item.color} />
-  );
-};
-
-const CategoriesScreen = () => {
+// NOTE since this is a react native navigation screen, we can destructure navigation in this component
+const CategoriesScreen = ({ navigation }) => {
+  const renderCategoryItem = (itemData) => {
+    const handleNavigate = () => {
+      navigation.navigate("MealsOverview");
+    };
+    return (
+      <CategoryComp
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onPress={handleNavigate}
+      />
+    );
+  };
   return (
     <FlatList
       data={CATEGORIES}
