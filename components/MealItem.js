@@ -12,15 +12,23 @@ import {
 const MealItem = ({ title, imgUrl, complexity, duration, affordability }) => {
   return (
     <View style={styles.mealItem}>
-      <Pressable>
-        <View>
-          <Image style={styles.image} source={{ uri: imgUrl }} />
-          <Text style={styles.title}>{title}</Text>
-        </View>
-        <View style={styles.details}>
-          <Text>{duration}(minutes) </Text>
-          <Text>{complexity.toUpperCase()} </Text>
-          <Text>{affordability.toUpperCase()} </Text>
+      <Pressable
+        android_ripple={{ color: "#ccc" }}
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.buttonPressed,
+        ]}
+      >
+        <View style={styles.innerContainer}>
+          <View>
+            <Image style={styles.image} source={{ uri: imgUrl }} />
+            <Text style={styles.title}>{title}</Text>
+          </View>
+          <View style={styles.details}>
+            <Text>{duration}(minutes) </Text>
+            <Text>{complexity.toUpperCase()} </Text>
+            <Text>{affordability.toUpperCase()} </Text>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -28,6 +36,12 @@ const MealItem = ({ title, imgUrl, complexity, duration, affordability }) => {
 };
 
 const styles = StyleSheet.create({
+  button: {
+    flex: 1,
+  },
+  buttonPressed: {
+    opacity: 0.5,
+  },
   mealItem: {
     margin: 16,
     borderRadius: 8,
@@ -42,8 +56,12 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 200,
-    borderTopRightRadius: 8,
-    borderTopLeftRadius: 8,
+    // borderTopRightRadius: 8,
+    // borderTopLeftRadius: 8,
+  },
+  innerContainer: {
+    borderRadius: 8,
+    overflow: "hidden",
   },
   title: {
     fontWeight: "bold",
