@@ -18,7 +18,9 @@ const MealsOverViewScreen = ({ route }) => {
     return meal.categoryIds.indexOf(params) >= 0;
   });
   const renderMealItem = (itemData) => {
-    return <MealItem title={itemData.item.title} />;
+    return (
+      <MealItem title={itemData.item.title} imgUrl={itemData.item.imageUrl} />
+    );
   };
   return (
     <View style={styles.container}>
