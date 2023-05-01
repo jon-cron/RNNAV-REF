@@ -4,9 +4,9 @@ import { Text, View, StyleSheet, Button, Pressable } from "react-native";
 const CategoryComp = ({ title, color }) => {
   return (
     <View style={styles.gridItem}>
-      <Pressable style={styles.button}>
+      <Pressable android_ripple={{ color: "#ccc" }} style={styles.button}>
         <View style={styles.innerContainer}>
-          <Text>{title}</Text>
+          <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
     </View>
@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
+    // NOTE the ripple on android was going passed the borderRadius. This overflow: 'hidden' cleans that up
+    overflow: "hidden",
   },
   button: {
     flex: 1,
@@ -35,6 +37,10 @@ const styles = StyleSheet.create({
     padding: 16,
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
 
